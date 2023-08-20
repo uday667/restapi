@@ -30,7 +30,7 @@ public class SampleController {
     }
     @GetMapping(value = "{bookId}")
     public Cloth updaterecord(@PathVariable(value = "bookId") int good)  {
-        return Optional.of(repo.findById(clothNumber).get());
+        return Optional.of(repo.findById(good).get());
         // if(cloth == null || cloth.getClothNumber() = null) {
         //     throw new ChangeSetPersister.NotFoundException();
         // }
