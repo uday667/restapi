@@ -28,10 +28,11 @@ public class SampleController {
     public Cloth createRecord(@RequestBody Cloth cloth) {
         return repo.save(cloth);
     }
-    @PutMapping
-    public Cloth updaterecord(@RequestBody Cloth cloth) throws ChangeSetPersister.NotFoundException, ChangeSetPersister.NotFoundException {
-        if(cloth == null || cloth.getClothNumber() == null) {
-            throw new ChangeSetPersister.NotFoundException();
-        }
+    @GetMapping(value = "{bookId}")
+    public Cloth updaterecord(@PathVariable(value = "bookId") int good)  {
+        return Optional.of(repo.findById(clothNumber).get());
+        // if(cloth == null || cloth.getClothNumber() = null) {
+        //     throw new ChangeSetPersister.NotFoundException();
+        // }
     }
 }
